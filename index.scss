@@ -1,0 +1,101 @@
+$img-urls: "alex-marc-wagner-cG5mEx01QZk-unsplash.jpg"
+           "artem-shuba-GYSiH1N6pxE-unsplash.jpg"
+           "elliot-paris-tFQgyx9RKe8-unsplash.jpg"
+           "mauro-lima-YARyzBJk1p8-unsplash.jpg"
+           "willian-justen-de-vasconcellos-4MuvmscxCnc-unsplash.jpg"
+           "yahir-espinosa-EUOui0vBFbA-unsplash.jpg";
+$nav-font: Raleway, sans-serif;
+$text-font: "Open Sans";
+
+body{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+nav{
+  font-family: $nav-font;
+  display: flex;
+  justify-content: space-between;
+  height: 75px;
+  align-items: center;
+}
+.nav-left-side>*{
+  margin: 0 5px 0 5px;
+  text-decoration: none;
+  position: relative;
+}
+.nav-left-side>*:visited{
+  color: steelblue;
+}
+.nav-left-side>*::after{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0.1em;
+  background-color: black;
+  opacity: 0;
+  transition: opacity 300ms, transform 300ms;
+}
+.nav-left-side>*:hover::after, .nav-left-side>*:focus::after{
+  opacity: 1;
+  transform: translate3d(0, 0.2em, 0);
+}
+.img-grid{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-template-rows: repeat(2,1fr);
+  width: 100%;
+  height: 100vh;
+}
+.grid-cell-text-icon{
+  display: block;
+  color: steelblue;
+  font-family: $text-font;
+  transition: 0.5s;
+  padding: 0 20px 0 20px;
+  height: 100vh;
+  & img{
+    width: 80px;
+    height: 80px;
+    position: relative;
+    top: 30%;
+  }
+  & p{
+    display: none;
+  }
+  &:hover{
+    background-color: rgba(0,0,0,0.6);
+    & p{
+      position: relative;
+      top: 30%;
+      display: block;
+      max-width: 80%;
+    }
+  }
+}
+@for $i from 1 through length($img-urls){
+  .grid-cell-#{$i}{
+    width: 100%;
+    background: url("media/images/" + nth($img-urls, $i)) no-repeat;
+    background-size: cover;
+  }
+}
+@media only screen and (max-width: 1268px){
+    .img-grid{
+      grid-template-columns: repeat(2,1fr);
+      grid-template-rows: repeat(3,1fr);
+      & *{
+        height: 70vh;
+      }
+    }
+}
+@media only screen and (max-width: 500px){
+  .img-grid{
+    display: block;
+    & *{
+      height: 70vh;
+    }
+  }
+}

@@ -1,0 +1,131 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+nav {
+  font-family: Raleway, sans-serif;
+  display: flex;
+  justify-content: space-between;
+  height: 75px;
+  align-items: center;
+}
+
+.nav-left-side > * {
+  margin: 0 5px 0 5px;
+  text-decoration: none;
+  position: relative;
+}
+
+.nav-left-side > *:visited {
+  color: steelblue;
+}
+
+.nav-left-side > *::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0.1em;
+  background-color: black;
+  opacity: 0;
+  transition: opacity 300ms, transform 300ms;
+}
+
+.nav-left-side > *:hover::after, .nav-left-side > *:focus::after {
+  opacity: 1;
+  transform: translate3d(0, 0.2em, 0);
+}
+
+.img-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  width: 100%;
+  height: 100vh;
+}
+
+.grid-cell-text-icon {
+  display: block;
+  color: steelblue;
+  font-family: "Open Sans";
+  transition: 0.5s;
+  padding: 0 20px 0 20px;
+  height: 100vh;
+}
+.grid-cell-text-icon img {
+  width: 80px;
+  height: 80px;
+  position: relative;
+  top: 30%;
+}
+.grid-cell-text-icon p {
+  display: none;
+}
+.grid-cell-text-icon:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.grid-cell-text-icon:hover p {
+  position: relative;
+  top: 30%;
+  display: block;
+  max-width: 80%;
+}
+
+.grid-cell-1 {
+  width: 100%;
+  background: url("media/images/alex-marc-wagner-cG5mEx01QZk-unsplash.jpg") no-repeat;
+  background-size: cover;
+}
+
+.grid-cell-2 {
+  width: 100%;
+  background: url("media/images/artem-shuba-GYSiH1N6pxE-unsplash.jpg") no-repeat;
+  background-size: cover;
+}
+
+.grid-cell-3 {
+  width: 100%;
+  background: url("media/images/elliot-paris-tFQgyx9RKe8-unsplash.jpg") no-repeat;
+  background-size: cover;
+}
+
+.grid-cell-4 {
+  width: 100%;
+  background: url("media/images/mauro-lima-YARyzBJk1p8-unsplash.jpg") no-repeat;
+  background-size: cover;
+}
+
+.grid-cell-5 {
+  width: 100%;
+  background: url("media/images/willian-justen-de-vasconcellos-4MuvmscxCnc-unsplash.jpg") no-repeat;
+  background-size: cover;
+}
+
+.grid-cell-6 {
+  width: 100%;
+  background: url("media/images/yahir-espinosa-EUOui0vBFbA-unsplash.jpg") no-repeat;
+  background-size: cover;
+}
+
+@media only screen and (max-width: 1268px) {
+  .img-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+  .img-grid * {
+    height: 70vh;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .img-grid {
+    display: block;
+  }
+  .img-grid * {
+    height: 70vh;
+  }
+}
+
+/*# sourceMappingURL=index.css.map */
